@@ -10,7 +10,8 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-        Texture2D explosion = Graphics.LoadTexture("../../../../assets/graphics/fwompie.png");
+         character
+        Texture2D frankie = Graphics.LoadTexture("../../../../assets/graphics/fwompie.png");
         Sound coinSFX = Audio.LoadSound("../../../../assets/audio/coin.wav");
         Sound targetSFX = Audio.LoadSound("../../../../assets/audio/target.ogg");
         Music bgm = Audio.LoadMusic("../../../../assets/audio/country.mp3");
@@ -50,12 +51,14 @@ namespace MohawkGame2D
                 Audio.Play(targetSFX);
             }
 
-            Graphics.Draw(explosion, Vector2.Zero);
+            Graphics.Scale = 1 / 4f;
+            Graphics.Rotation += 1;
+            Graphics.Draw(frankie, new Vector2(frankie.Width / 2, frankie.Height / 2));
 
             Text.Size = 16;
             Text.Font = font;
             Text.Color = Color.Red;
-            Text.Draw("MY NAME JEFF!!!!!!!!!!", Window.Size / 2);
+            Text.Draw("MY NAME JEFF!!!!!!!!!!", frankie.Size / 2);
         }
     }
 
